@@ -1,6 +1,6 @@
 const questions=[
     {
-        image: "images/vegetables.png",
+        image: "vegetables.png",
         correct:3,
         question:'Which advertisement is about ___?',
         options: [
@@ -15,7 +15,7 @@ const questions=[
           ]
     },
     {
-        image: "images/football.png",
+        image: "football.png",
         correct:2,
         question:'Which advertisement is about ___?',
         options: [
@@ -30,7 +30,7 @@ const questions=[
           ]
     },
     {
-        image: "images/taco.png",
+        image: "taco.png",
         correct:4,
         question:'Which advertisement is about ___?',
         options: [
@@ -45,7 +45,7 @@ const questions=[
           ]
     },
     {
-        image: "images/estate.png",
+        image: "estate.png",
         correct:1,
         question:'Which advertisement is about ___?',
         options: [
@@ -60,7 +60,7 @@ const questions=[
           ]
     },
     {
-        image: "images/speaking.png",
+        image: "speaking.png",
         correct:0,
         question:'Which advertisement is about ___?',
         options: [
