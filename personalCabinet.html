@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Інтерактивний Тест</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="alltests.html" class="allTests">До усіх тестів</a>
+  <form action="/logout" method="GET" style="display: inline;">
+    <button type="submit" class="allTests">Вийти з акаунту</button>
+  </form>
+  <div class="mainSection">
+
+    
+   <!--<a href="/dashboard.html">Go to Dashboard</a> --> 
+    <h1>Сторінка особистого кабінету</h1>
+    <ul id="history"></ul>
+    <script>
+      /*
+      fetch('/history')
+        .then(res => {
+          if (!res.ok) throw new Error('Failed to fetch history');
+          return res.json();
+        })
+        .then(data => {
+          console.log('History data:', data);
+          const list = document.getElementById('history');
+          
+          if (!data || !Array.isArray(data)) {
+            console.error('Invalid history data format');
+            return;
+          }
+
+          data.forEach(entry => {
+            // Skip entries without test_id
+            if (!entry.test_id) {
+              console.warn('Skipping entry with missing test_id:', entry);
+              return;
+            }
+            console.log('Processing entry:', entry);
+
+            const container = document.createElement('div');
+            container.style.display = 'flex';
+            container.style.justifyContent = 'space-between';
+            container.classList.add('completedTest');
+
+            const li = document.createElement('li');
+            li.textContent = 'Тест: ${testId}, Результат: ${entry.score}, Дата: ${new Date(entry.date).toLocaleDateString()}';
+
+            const buttonTryAgain = document.createElement('a');
+            buttonTryAgain.textContent = 'Спробувати знову';
+            buttonTryAgain.classList.add('tryAgain');
+            buttonTryAgain.href = '${testId}.html';
+            console.log('Setting redirect to:', buttonTryAgain.href);
+
+            container.appendChild(li);
+            container.appendChild(buttonTryAgain);
+            list.appendChild(container);
+          });
+        })
+        .catch(err => {
+          console.error('Error loading history:', err);
+          document.getElementById('history').textContent = 'Помилка завантаження історії тестів';
+        });
+        */
+        fetch('/history')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('history');
+        data.forEach(entry => {
+          const container = document.createElement('div');
+            container.style.display = 'flex';
+            container.style.justifyContent = 'space-between';
+            container.classList.add('completedTest');
+            const li = document.createElement('li');
+            li.textContent = `Результат: ${entry.score}, Дата: ${new Date(entry.date).toLocaleDateString()}`;
+            container.appendChild(li);
+            list.appendChild(container);
+        });
+      });
+    </script>
+</body>
+</html>
+
+  
+<!--, Date: ${entry.date}-->
+  
+

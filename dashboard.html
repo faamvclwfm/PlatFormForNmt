@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title></head>
+<body>
+  <h1>Your Test History</h1>
+  <ul id="history"></ul>
+
+  <script>
+    fetch('/history')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('history');
+        data.forEach(entry => {
+          const li = document.createElement('li');
+          li.textContent = `Score: ${entry.score}, Date: ${entry.date}`;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>

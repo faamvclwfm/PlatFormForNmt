@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleLogin.css">
+</head>
+<body>
+    <div class="mainForm">
+
+        <h2>Login</h2>
+        <form onsubmit="login(); return false;" class="loginForm">
+        <input type="text" id="loginUser" placeholder="Username" required>
+        <input type="password" id="loginPass" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  <script>
+    function login() {
+      fetch('/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ username: loginUser.value, password: loginPass.value })
+      }).then(res => {
+        if (res.ok) location.href = '/personalCabinet.html';
+        else alert('Login failed');
+      });
+    }
+  </script>
+</body>
+</html>
